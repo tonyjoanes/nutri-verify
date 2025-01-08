@@ -14,15 +14,15 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4  # Updated to v4
+      uses: actions/checkout@v4
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v4  # Updated to v4
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '7.x'
+        dotnet-version: '8.0.x'  # Changed from '7.x' to '8.0.x'
 
     - name: Cache NuGet packages
-      uses: actions/cache@v3  # Updated to v3
+      uses: actions/cache@v3
       with:
         path: ~/.nuget/packages
         key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
@@ -37,9 +37,8 @@ jobs:
       run: dotnet build --configuration Release --no-restore ./src/NutriVerify.sln
       continue-on-error: false
 
-    # Optional: Publish artifacts
     - name: Publish artifacts
-      uses: actions/upload-artifact@v4  # Updated to v4
+      uses: actions/upload-artifact@v4
       with:
         name: api-build
         path: src/NutriVerify.Api/bin/Release/
