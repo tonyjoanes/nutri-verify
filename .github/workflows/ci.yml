@@ -22,10 +22,10 @@ jobs:
         dotnet-version: '7.x' # Adjust this to your .NET version
 
     - name: Restore dependencies
-      run: dotnet restore ./NutroVerify.Api/NutroVerify.Api.csproj
+      run: dotnet restore ./NutriVerify.Api/NutriVerify.Api.csproj
 
     - name: Build
-      run: dotnet build --configuration Release ./NutroVerify.Api/NutroVerify.Api.csproj
+      run: dotnet build --configuration Release ./NutriVerify.Api/NutriVerify.Api.csproj
 
     # - name: Run tests
-    #   run: dotnet test --no-build --verbosity normal ./NutroVerify.Api.Tests/NutroVerify.Api.Tests.csproj
+    #   run: dotnet test --no-build --verbosity normal ./NutriVerify.Api.Tests/NutriVerify.Api.Tests.csproj
