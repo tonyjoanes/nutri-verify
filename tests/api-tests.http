@@ -1,0 +1,52 @@
+# NutriVerify API Tests
+@baseUrl = http://localhost:5240
+
+### Variables for different environments
+@devUrl = http://localhost:5240
+@stagingUrl = https://staging-api.nutriverify.com
+@prodUrl = https://api.nutriverify.com
+
+### Health Check Endpoints
+### Basic health check
+GET {{baseUrl}}/api/health
+
+### Detailed health check
+GET {{baseUrl}}/api/health/details
+
+### Research Paper Endpoints
+### Get all research papers
+GET {{baseUrl}}/api/research
+
+### Get research papers filtered by diet type
+GET {{baseUrl}}/api/research?dietType=keto
+
+### Get specific research paper by ID
+GET {{baseUrl}}/api/research/1
+
+### Verify a nutrition claim
+POST {{baseUrl}}/api/research/verify-claim
+Content-Type: application/json
+
+{
+    "claim": "Keto diet leads to rapid weight loss",
+    "source": "Instagram",
+    "context": "Post from fitness influencer claiming keto causes 10lb weight loss per week"
+}
+
+### Another claim verification example
+POST {{baseUrl}}/api/research/verify-claim
+Content-Type: application/json
+
+{
+    "claim": "Paleo diet cures autoimmune conditions",
+    "source": "Twitter",
+    "context": "Wellness blogger testimonial about paleo diet improving health conditions"
+}
+
+### Invalid request example (missing required field)
+POST {{baseUrl}}/api/research/verify-claim
+Content-Type: application/json
+
+{
+    "source": "Facebook"
+}

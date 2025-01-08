@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "XtZKefTb2Gg02jLNXLgqvov659DS0Cpfaa/HRudUZwM=",
+  "Source": "NutriVerify.Api",
+  "BasePath": "_content/NutriVerify.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

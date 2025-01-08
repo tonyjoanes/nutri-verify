@@ -1,0 +1,16 @@
+C:\dev\nutri-verify\src\NutriVerify.Data\bin\Debug\net8.0\NutriVerify.Data.deps.json
+C:\dev\nutri-verify\src\NutriVerify.Data\bin\Debug\net8.0\NutriVerify.Data.dll
+C:\dev\nutri-verify\src\NutriVerify.Data\bin\Debug\net8.0\NutriVerify.Data.pdb
+C:\dev\nutri-verify\src\NutriVerify.Data\bin\Debug\net8.0\NutriVerify.Core.dll
+C:\dev\nutri-verify\src\NutriVerify.Data\bin\Debug\net8.0\NutriVerify.Core.pdb
+C:\dev\nutri-verify\src\NutriVerify.Data\obj\Debug\net8.0\NutriVerify.Data.csproj.AssemblyReference.cache
+C:\dev\nutri-verify\src\NutriVerify.Data\obj\Debug\net8.0\NutriVerify.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\nutri-verify\src\NutriVerify.Data\obj\Debug\net8.0\NutriVerify.Data.AssemblyInfoInputs.cache
+C:\dev\nutri-verify\src\NutriVerify.Data\obj\Debug\net8.0\NutriVerify.Data.AssemblyInfo.cs
+C:\dev\nutri-verify\src\NutriVerify.Data\obj\Debug\net8.0\NutriVerify.Data.csproj.CoreCompileInputs.cache
+C:\dev\nutri-verify\src\NutriVerify.Data\obj\Debug\net8.0\NutriVerify.Data.sourcelink.json
+C:\dev\nutri-verify\src\NutriVerify.Data\obj\Debug\net8.0\NutriVer.A7FD6E45.Up2Date
+C:\dev\nutri-verify\src\NutriVerify.Data\obj\Debug\net8.0\NutriVerify.Data.dll
+C:\dev\nutri-verify\src\NutriVerify.Data\obj\Debug\net8.0\refint\NutriVerify.Data.dll
+C:\dev\nutri-verify\src\NutriVerify.Data\obj\Debug\net8.0\NutriVerify.Data.pdb
+C:\dev\nutri-verify\src\NutriVerify.Data\obj\Debug\net8.0\ref\NutriVerify.Data.dll
