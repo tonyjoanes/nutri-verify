@@ -1,4 +1,4 @@
-name: Build NutroVerify.Api
+name: Build NutriVerify.Api
 
 on:
   push:
@@ -19,13 +19,35 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: '7.x' # Adjust this to your .NET version
+        dotnet-version: '7.x'
 
-    - name: Restore dependencies
-      run: dotnet restore ./NutriVerify.Api/NutriVerify.Api.csproj
+    - name: Cache NuGet packages
+      uses: actions/cache@v2
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
 
-    - name: Build
-      run: dotnet build --configuration Release ./NutriVerify.Api/NutriVerify.Api.csproj
+    - name: Restore solution
+      run: dotnet restore ./src/NutriVerify.sln
+      continue-on-error: false
 
+    - name: Build solution
+      run: dotnet build --configuration Release --no-restore ./src/NutriVerify.sln
+      continue-on-error: false
+
+    # Uncomment when you add tests
     # - name: Run tests
-    #   run: dotnet test --no-build --verbosity normal ./NutriVerify.Api.Tests/NutriVerify.Api.Tests.csproj
+    #   run: dotnet test --no-build --verbosity normal ./src/NutriVerify.Api.Tests/NutriVerify.Api.Tests.csproj
+
+    # Optional: Add code coverage
+    # - name: Generate code coverage report
+    #   run: dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+
+    # Optional: Publish artifacts
+    - name: Publish artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: api-build
+        path: src/NutriVerify.Api/bin/Release/
