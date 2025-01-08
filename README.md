@@ -2,6 +2,8 @@
 
 NutriVerify is an AI-powered platform designed to analyze scientific nutrition research and fact-check dietary claims. The platform combines cutting-edge AI technology with evidence-based nutrition science to help users make informed decisions about diet and nutrition.
 
+![GitHub Actions](https://github.com/tonyjoanes/nutri-verify/actions/workflows/ci.yml/badge.svg)
+
 ## 🚀 Features
 
 - Scientific paper analysis and data extraction
