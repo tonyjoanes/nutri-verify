@@ -24,8 +24,9 @@ NutriVerify is an AI-powered platform designed to analyze scientific nutrition r
 ## 📋 Prerequisites
 
 - .NET 7.0 or later
-- Python 3.8 or later
+- Python 3.10 or later
 - Node.js 16.x or later
+- Poetry (Python dependency management)
 - [Database system]
 
 ## 🏗️ Setup
@@ -44,11 +45,50 @@ dotnet build
 ```
 
 3. Set up the Python environment:
+
+First, install Poetry (Python dependency management):
+
+Windows (PowerShell):
+```powershell
+(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | py -
+```
+
+macOS/Linux:
 ```bash
-cd ../python
-python -m venv env
-source env/bin/activate  # On Windows: .\env\Scripts\activate
-pip install -r requirements.txt
+curl -sSL https://install.python-poetry.org | python3 -
+```
+
+Then set up the Python environment:
+```bash
+# From project root
+cd src/python
+
+# Install dependencies using Poetry
+poetry install
+
+# Activate the virtual environment
+poetry shell
+
+# To deactivate the virtual environment when done
+exit
+```
+
+Common Poetry commands:
+```bash
+# Add a new dependency
+poetry add package-name
+
+# Add a development dependency
+poetry add --group dev package-name
+
+# Update dependencies
+poetry update
+
+# Show installed packages
+poetry show
+
+# Run a command in the virtual environment without activating it
+poetry run python your_script.py
 ```
 
 4. Set up the frontend:
@@ -70,7 +110,7 @@ dotnet run
 2. Start the Python services:
 ```bash
 cd src/python
-python main.py
+poetry run python main.py
 ```
 
 3. Start the frontend:
@@ -86,7 +126,7 @@ npm start
 dotnet test
 
 # Run Python tests
-pytest
+poetry run pytest
 
 # Run frontend tests
 npm test
@@ -101,8 +141,10 @@ nutriverify/
 │   ├── NutriVerify.Core/    # Core business logic
 │   ├── NutriVerify.Data/    # Data access layer
 │   ├── python/              # Python services
-│   └── frontend/            # React frontend
-└── tests/                   # Test projects
+│   │   ├── ingestion/      # Data collection services
+│   │   └── analysis/       # AI/ML analysis
+│   └── frontend/           # React frontend
+└── tests/                  # Test projects
 ```
 
 ## 🤝 Contributing
