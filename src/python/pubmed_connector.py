@@ -1,18 +1,18 @@
-# src/pubmed_connector.py
+# src/python/pubmed_connector.py
 
 import httpx
 from typing import List, Dict
-from datetime import datetime
+import xml.etree.ElementTree as ET
 
 class PubMedConnector:
-    """Simple PubMed connector"""
+    """PubMed connector that fetches detailed study information"""
     
     def __init__(self, email: str):
         self.email = email
         self.base_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
     
     async def search_articles(self, query: str, max_results: int = 5) -> List[Dict]:
-        """Search PubMed articles"""
+        """Search PubMed articles with full details"""
         
         # Search parameters
         params = {
@@ -34,8 +34,8 @@ class PubMedConnector:
             data = search_response.json()
             ids = data['esearchresult']['idlist']
             
-            # Get article details
-            details_params = {
+            # Get basic article details
+            summary_params = {
                 'db': 'pubmed',
                 'id': ','.join(ids),
                 'retmode': 'json',
@@ -43,16 +43,64 @@ class PubMedConnector:
                 'email': self.email
             }
             
-            details_response = await client.get(
+            summary_response = await client.get(
                 f"{self.base_url}/esummary.fcgi",
-                params=details_params
+                params=summary_params
             )
             
+            # Get full article details including abstract
+            efetch_params = {
+                'db': 'pubmed',
+                'id': ','.join(ids),
+                'retmode': 'xml',
+                'rettype': 'abstract',
+                'tool': 'nutriverify',
+                'email': self.email
+            }
+            
+            efetch_response = await client.get(
+                f"{self.base_url}/efetch.fcgi",
+                params=efetch_params
+            )
+            
+            # Parse the XML for abstracts
+            abstracts = {}
+            try:
+                root = ET.fromstring(efetch_response.text)
+                for article in root.findall(".//PubmedArticle"):
+                    pmid = article.find(".//PMID").text
+                    abstract_element = article.find(".//Abstract")
+                    if abstract_element is not None:
+                        abstract_text = []
+                        for section in abstract_element.findall(".//AbstractText"):
+                            label = section.get('Label', '')
+                            text = section.text or ''
+                            if label:
+                                abstract_text.append(f"{label}: {text}")
+                            else:
+                                abstract_text.append(text)
+                        abstracts[pmid] = "\n".join(abstract_text)
+                    else:
+                        abstracts[pmid] = "No abstract available"
+            except ET.ParseError as e:
+                print(f"Error parsing XML: {e}")
+            
+            # Combine all information
             articles = []
-            details_data = details_response.json()
+            details_data = summary_response.json()
             
             for pmid in ids:
                 article_data = details_data['result'][pmid]
+                
+                # Get publication types
+                pub_types = article_data.get('pubtype', [])
+                
+                # Get DOI if available
+                doi = None
+                if 'articleids' in article_data:
+                    for id_obj in article_data['articleids']:
+                        if id_obj.get('idtype') == 'doi':
+                            doi = id_obj.get('value')
                 
                 article = {
                     'pmid': pmid,
@@ -60,6 +108,10 @@ class PubMedConnector:
                     'authors': [a.get('name', '') for a in article_data.get('authors', [])],
                     'journal': article_data.get('source', ''),
                     'date': article_data.get('pubdate', ''),
+                    'abstract': abstracts.get(pmid, 'No abstract available'),
+                    'publication_types': pub_types,
+                    'doi': doi,
+                    'keywords': article_data.get('keywords', []),
                 }
                 
                 articles.append(article)
