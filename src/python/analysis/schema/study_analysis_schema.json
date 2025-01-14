@@ -1,0 +1,229 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Study Analysis Schema",
+    "description": "Schema for analyzing and presenting research studies",
+    "type": "object",
+    "required": [
+      "quick_summary",
+      "study_basics",
+      "intervention",
+      "outcomes",
+      "practical_implications",
+      "evidence_assessment",
+      "health_claims"
+    ],
+    "properties": {
+      "quick_summary": {
+        "type": "object",
+        "required": ["key_finding", "relevance", "evidence_level", "study_quality"],
+        "properties": {
+          "key_finding": {
+            "type": "string",
+            "description": "One-sentence main finding"
+          },
+          "relevance": {
+            "type": "string",
+            "description": "Who this matters for"
+          },
+          "evidence_level": {
+            "type": "string",
+            "enum": ["Strong", "Moderate", "Preliminary"],
+            "description": "Level of evidence provided"
+          },
+          "study_quality": {
+            "type": "string",
+            "description": "Quality assessment with reasoning"
+          }
+        }
+      },
+      "study_basics": {
+        "type": "object",
+        "required": ["study_type", "population", "duration"],
+        "properties": {
+          "study_type": {
+            "type": "string",
+            "description": "Type of study conducted"
+          },
+          "population": {
+            "type": "object",
+            "required": ["size", "characteristics"],
+            "properties": {
+              "size": {
+                "type": "integer",
+                "minimum": 1,
+                "description": "Number of participants"
+              },
+              "characteristics": {
+                "type": "string",
+                "description": "Key population features"
+              },
+              "inclusion_criteria": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Criteria for inclusion in study"
+              }
+            }
+          },
+          "duration": {
+            "type": "string",
+            "description": "Length of study"
+          },
+          "location": {
+            "type": "string",
+            "description": "Where study was conducted"
+          },
+          "funding": {
+            "type": "string",
+            "description": "Funding sources and potential conflicts"
+          }
+        }
+      },
+      "intervention": {
+        "type": "object",
+        "required": ["type", "details", "control_group"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "What was tested"
+          },
+          "details": {
+            "type": "string",
+            "description": "Specific protocol details"
+          },
+          "control_group": {
+            "type": "string",
+            "description": "What was compared against"
+          },
+          "dosage": {
+            "type": "string",
+            "description": "If applicable"
+          },
+          "duration": {
+            "type": "string",
+            "description": "How long intervention lasted"
+          }
+        }
+      },
+      "outcomes": {
+        "type": "object",
+        "required": ["primary", "results"],
+        "properties": {
+          "primary": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Main outcomes measured"
+          },
+          "secondary": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Additional outcomes"
+          },
+          "results": {
+            "type": "object",
+            "required": ["main_findings"],
+            "properties": {
+              "main_findings": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "statistical_significance": {
+                "type": "string"
+              },
+              "effect_size": {
+                "type": "string"
+              }
+            }
+          },
+          "side_effects": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Any reported side effects"
+          }
+        }
+      },
+      "practical_implications": {
+        "type": "object",
+        "required": ["who_benefits", "limitations"],
+        "properties": {
+          "who_benefits": {
+            "type": "string",
+            "description": "Target population"
+          },
+          "requirements": {
+            "type": "string",
+            "description": "What's needed to implement"
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Study limitations"
+          },
+          "contraindications": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Who should not use/cautions"
+          }
+        }
+      },
+      "evidence_assessment": {
+        "type": "object",
+        "required": ["methodology_score", "sample_size_adequacy", "bias_assessment"],
+        "properties": {
+          "methodology_score": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5,
+            "description": "1-5 rating of methodology"
+          },
+          "sample_size_adequacy": {
+            "type": "string"
+          },
+          "bias_assessment": {
+            "type": "string"
+          },
+          "replication_status": {
+            "type": "string",
+            "description": "Similar studies exist?"
+          }
+        }
+      },
+      "health_claims": {
+        "type": "object",
+        "required": ["supported_claims", "unsupported_claims", "context_needed"],
+        "properties": {
+          "supported_claims": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Claims supported by this study"
+          },
+          "unsupported_claims": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Claims not supported by this study"
+          },
+          "context_needed": {
+            "type": "string",
+            "description": "Important caveats and context"
+          }
+        }
+      }
+    }
+  }

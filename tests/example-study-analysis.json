@@ -1,0 +1,91 @@
+Title: Low-Dose Ketone Monoester Administration in Adults with Cystic Fibrosis: A Pilot and Feasibility Study.
+
+Authors: Plaisance EP, Bergeron JM, Bolyard ML, Hathorne HY, Graziano CM, Hartzes A, Genschmer KR, Alvarez JA, Goss AM, Gaggar A, Fontaine KR
+Journal: Nutrients
+Date: 2024 Nov 19
+Type: Journal Article, Randomized Controlled Trial
+DOI: 10.3390/nu16223957
+
+Abstract:
+INTRODUCTION: Cystic fibrosis transmembrane conductance regulator (
+METHODS: Fourteen participants receiving modulator therapy were randomized to receive either KME (n = 9) or placebo control (PC, n = 5) for 5-7 days during hospitalization for treatment of acute pulmonary exacerbation or as outpatients under standard care.
+RESULTS: The KME was well tolerated, with only mild reports of gastrointestinal distress. D-βHB concentrations increased from 0.2 ± 0.1 mM to 1.6 ± 0.6 mM in the KME 
+group compared to 0.2 ± 0.0 to 0.3 ± 0.1 in the PC group (
+CONCLUSIONS: With the emerging role of exogenous ketones as nutrient signaling molecules and mediators of metabolism, we showed that KME is well tolerated, increases 
+circulating D-βHB concentrations, and produces outcomes that justify the need for large-scale clinical trials to investigate the role of KME on whole-body and tissue 
+lipid accumulation and inflammation in pwCF.
+{
+    "quick_summary": {
+        "key_finding": "Ketone monoester supplementation was well-tolerated and successfully increased blood ketone levels in CF patients",
+        "relevance": "Adults with Cystic Fibrosis who are on modulator therapy",
+        "evidence_level": "Preliminary",
+        "study_quality": "Medium - Well-designed pilot study but small sample size"
+    },
+    
+    "study_basics": {
+        "study_type": "Randomized Controlled Trial (Pilot Study)",
+        "population": {
+            "size": 14,
+            "characteristics": "Adults with Cystic Fibrosis on modulator therapy",
+            "inclusion_criteria": ["On modulator therapy", "During hospitalization or standard care"]
+        },
+        "duration": "5-7 days",
+        "location": "Not specified",
+        "funding": "Not specified in abstract"
+    },
+    
+    "intervention": {
+        "type": "Ketone Monoester (KME) supplementation",
+        "details": "KME administration",
+        "control_group": "Placebo control (n=5)",
+        "dosage": "Not specified in abstract",
+        "duration": "5-7 days"
+    },
+    
+    "outcomes": {
+        "primary": [
+            "Blood D-βHB concentrations",
+            "Tolerance and safety"
+        ],
+        "results": {
+            "main_findings": [
+                "D-βHB increased from 0.2±0.1 mM to 1.6±0.6 mM in KME group",
+                "Control group showed minimal change (0.2±0.0 to 0.3±0.1)"
+            ],
+            "statistical_significance": "Significant increase in ketone levels",
+            "effect_size": "1.4 mM increase in D-βHB"
+        },
+        "side_effects": ["Mild gastrointestinal distress"]
+    },
+    
+    "practical_implications": {
+        "who_benefits": "Adults with CF on modulator therapy",
+        "requirements": "KME supplementation under medical supervision",
+        "limitations": [
+            "Small sample size (14 participants)",
+            "Short duration (5-7 days)",
+            "Pilot study design"
+        ],
+        "contraindications": ["Not specified in abstract"]
+    },
+    
+    "evidence_assessment": {
+        "methodology_score": 3,  # Out of 5
+        "sample_size_adequacy": "Limited - pilot study",
+        "bias_assessment": "Randomized design reduces bias, but small sample size increases uncertainty",
+        "replication_status": "Calls for large-scale trials needed"
+    },
+    
+    "health_claims": {
+        "supported_claims": [
+            "KME supplementation can increase blood ketone levels in CF patients",
+            "KME is generally well-tolerated in CF patients"
+        ],
+        "unsupported_claims": [
+            "Long-term effects",
+            "Impact on CF symptoms or progression",
+            "Benefits beyond ketone level increase"
+        ],
+        "context_needed": "This is preliminary evidence from a pilot study. Larger trials are needed to confirm benefits and safety."
+    }
+}

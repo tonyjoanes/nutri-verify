@@ -1,0 +1,240 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Study Analysis Schema",
+  "description": "Schema for analyzing and presenting research studies",
+  "type": "object",
+  "required": [
+    "quick_summary",
+    "study_basics",
+    "intervention",
+    "outcomes",
+    "practical_implications",
+    "evidence_assessment",
+    "health_claims"
+  ],
+  "properties": {
+    "quick_summary": {
+      "type": "object",
+      "required": [
+        "key_finding",
+        "relevance",
+        "evidence_level",
+        "study_quality"
+      ],
+      "properties": {
+        "key_finding": {
+          "type": "string",
+          "description": "No significant difference in HbA1c values between ketogenic and Mediterranean diets after 12 weeks in individuals with prediabetes and T2DM."
+        },
+        "relevance": {
+          "type": "string",
+          "description": "Relevant to individuals with prediabetes and type 2 diabetes mellitus considering dietary interventions."
+        },
+        "evidence_level": {
+          "type": "string",
+          "enum": [
+            "Moderate"
+          ],
+          "description": "Randomized crossover trial with limitations."
+        },
+        "study_quality": {
+          "type": "string",
+          "description": "Good quality with a well-defined intervention and outcome measures, but limited by small sample size and short duration."
+        }
+      }
+    },
+    "study_basics": {
+      "type": "object",
+      "required": [
+        "study_type",
+        "population",
+        "duration"
+      ],
+      "properties": {
+        "study_type": {
+          "type": "string",
+          "description": "Randomized crossover interventional trial"
+        },
+        "population": {
+          "type": "object",
+          "required": [
+            "size",
+            "characteristics"
+          ],
+          "properties": {
+            "size": {
+              "type": "integer",
+              "minimum": 40,
+              "description": "40 participants"
+            },
+            "characteristics": {
+              "type": "string",
+              "description": "Individuals aged \u226518 years with prediabetes or type 2 diabetes mellitus"
+            }
+          }
+        },
+        "duration": {
+          "type": "string",
+          "description": "12 weeks"
+        }
+      }
+    },
+    "intervention": {
+      "type": "object",
+      "required": [
+        "type",
+        "details",
+        "control_group"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Dietary intervention"
+        },
+        "details": {
+          "type": "string",
+          "description": "Participants followed a well-formulated ketogenic diet and a Mediterranean-plus diet for 12 weeks each, in random order."
+        },
+        "control_group": {
+          "type": "string",
+          "description": "Each participant served as their own control, switching diets after a period."
+        }
+      }
+    },
+    "outcomes": {
+      "type": "object",
+      "required": [
+        "primary",
+        "results"
+      ],
+      "properties": {
+        "primary": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": [
+            "Percentage change in glycated hemoglobin (HbA1c) after 12 weeks on each diet"
+          ]
+        },
+        "secondary": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": [
+            "Percentage changes in body weight, fasting insulin, glucose, and blood lipids",
+            "Average glucose from continuous glucose monitor (CGM)",
+            "Nutrient intake"
+          ]
+        },
+        "results": {
+          "type": "object",
+          "required": [
+            "main_findings"
+          ],
+          "properties": {
+            "main_findings": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": [
+                "No significant difference in HbA1c values between diets at 12 weeks",
+                "Greater decrease in triglycerides and higher LDL cholesterol with the ketogenic diet",
+                "Weight loss and HDL cholesterol increase were similar for both diets",
+                "Lower intakes of fiber and 3 nutrients on the ketogenic diet",
+                "Mediterranean-plus diet may be more sustainable"
+              ]
+            },
+            "statistical_significance": {
+              "type": "string",
+              "description": "Significant differences were found in triglycerides and LDL cholesterol levels between the diets."
+            }
+          }
+        }
+      }
+    },
+    "practical_implications": {
+      "type": "object",
+      "required": [
+        "who_benefits",
+        "limitations"
+      ],
+      "properties": {
+        "who_benefits": {
+          "type": "string",
+          "description": "Individuals with prediabetes and type 2 diabetes mellitus considering dietary interventions."
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": [
+            "Small sample size",
+            "Short duration",
+            "Potential bias due to self-reporting of dietary intake",
+            "Lack of long-term sustainability data"
+          ]
+        }
+      }
+    },
+    "evidence_assessment": {
+      "type": "object",
+      "required": [
+        "methodology_score",
+        "sample_size_adequacy",
+        "bias_assessment"
+      ],
+      "properties": {
+        "methodology_score": {
+          "type": "integer",
+          "minimum": 4,
+          "maximum": 5,
+          "description": "4 - Good methodology with clear intervention and outcome measures, but limited by small sample size and short duration."
+        },
+        "sample_size_adequacy": {
+          "type": "string",
+          "description": "Inadequate - Small sample size of 40 participants."
+        },
+        "bias_assessment": {
+          "type": "string",
+          "description": "Potential bias due to self-reporting of dietary intake."
+        }
+      }
+    },
+    "health_claims": {
+      "type": "object",
+      "required": [
+        "supported_claims",
+        "unsupported_claims",
+        "context_needed"
+      ],
+      "properties": {
+        "supported_claims": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": [
+            "Both ketogenic and Mediterranean diets can lead to improvements in HbA1c, weight loss, and other cardiometabolic risk factors in individuals with prediabetes and T2DM."
+          ]
+        },
+        "unsupported_claims": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": [
+            "One diet is superior to the other in improving HbA1c in individuals with prediabetes and T2DM."
+          ]
+        },
+        "context_needed": {
+          "type": "string",
+          "description": "Results may not be generalizable to other populations. Long-term sustainability and effects of the diets were not assessed."
+        }
+      }
+    }
+  }
+}
