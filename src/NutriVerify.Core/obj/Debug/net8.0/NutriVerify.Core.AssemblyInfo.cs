@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NutriVerify.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+42cbee811d346c46685f35927fc3f89074372a94")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+411d6fdf23aea47522a44363fe3d4ff7cc4fabd0")]
 [assembly: System.Reflection.AssemblyProductAttribute("NutriVerify.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NutriVerify.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -20,6 +20,7 @@ black = "^23.9"
 isort = "^5.12"
 mypy = "^1.6"
 pylint = "^3.0"
+ipykernel = "^6.29.5"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

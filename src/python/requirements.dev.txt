@@ -1,7 +1,0 @@
-# requirements-dev.txt
--r requirements.txt
-pytest>=7.4
-black>=23.9
-isort>=5.12
-mypy>=1.6
-pylint>=3.0
